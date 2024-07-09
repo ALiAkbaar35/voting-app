@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Voting Application - Candidates</title>
+  </head>
+  <body>
+    <div class="body-wrapper">
+      <div class="body">
+        <div class="header">
+          <div class="title">Candidates</div>
+          <button class="add" (click)="openDialog()" *ngIf="role === 'admin'">Add</button>
+        </div>
+        <div class="content">
+          <div class="candidate-box" *ngFor="let key of candidates | keyvalue">
+            <div class="candidate-header">
+              <div class="candidate-name">{{ key.value[0].position.name }}</div>
+              <div class="candidate-section">
+                <div class="candidate-level">
+                  {{ key.value[0].position.level }}
+                </div>
+                <div class="candidate-area">
+                  {{ key.value[0].position.area }}
+                </div>
+              </div>
+            </div>
+            <div class="candidates">
+              <table>
+                <tbody>
+                  <tr *ngFor="let candidate of key.value">
+                    <td class="candidate-name">{{ candidate.name }}</td>
+                    <td class="candidate-party middle">
+                      {{ candidate.party }}
+                    </td>
+                    <td class="candidate-votes middle" *ngIf="role === 'admin'">
+                      {{ candidate.vote }}
+                    </td>
+                    <td class="candidate-age middle">
+                      {{ date(candidate.age) }}
+                    </td>
+                    <td class="actions" *ngIf="role === 'admin'">
+                      <i
+                        class="fa-solid fa-pen-to-square"
+                        (click)="editDialog(candidate)"
+                      ></i>
+                      <i
+                        class="fa-solid fa-trash-can"
+                        (click)="deleteCandidate(candidate.$id)"
+                      ></i>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <dialog id="searchDialog" [open]="isDialogOpen" class="dialog">
+            <div class="dialog-wrapper">
+              <div class="dialog-header">
+                <div class="left">
+                  <i class="fa-solid fa-person icon"></i>
+                  <div class="title" *ngIf="!isEdit">Add</div>
+                  <div class="title" *ngIf="isEdit">Edit Position</div>
+                </div>
+                <div class="close">
+                  <i class="fa-solid fa-xmark" (click)="closeDialog()"></i>
+                </div>
+              </div>
+              <div class="dialog-body">
+                <form
+                  class="form"
+                  (submit)="isEdit ? onEdit(data) : onSubmit()"
+                >
+                  <div class="input-group">
+                    <label for="name">Name</label>
+                    <input
+                      type="text"
+                      id="name"
+                      [(ngModel)]="data.name"
+                      name="name"
+                      placeholder="Enter candidate name"
+                      required
+                    />
+                    <p class="error">{{ errors.name }}</p>
+                  </div>
+                  <div class="input-group">
+                    <label for="party">Party</label>
+                    <input
+                      type="text"
+                      id="party"
+                      placeholder="Enter Party Name"
+                      name="party"
+                      [(ngModel)]="data.party"
+                      required
+                    />
+                    <p class="error">{{ errors.party }}</p>
+                  </div>
+
+                  <div class="input-group">
+                    <label for="age">Age</label>
+                    <input
+                      type="date"
+                      id="age"
+                      placeholder="Enter candidate age"
+                      name="age"
+                      [(ngModel)]="data.age"
+                      required
+                    />
+                    <p class="error">{{ errors.age }}</p>
+                  </div>
+
+                  <div class="input-group">
+                    <label for="party">Position</label>
+                    <select
+                      name="Position"
+                      id="position"
+                      [(ngModel)]="data.position"
+                    >
+                      <option value="" selected disabled>Select</option>
+                      <option *ngFor="let po of positions" [value]="po.$id">
+                        {{ po.name }} -- {{ po.level }} -- {{ po.area }}
+                      </option>
+                    </select>
+                    <p class="error">{{ errors.position }}</p>
+                  </div>
+                  <p class="error-message">{{ errors.err }}</p>
+
+                  <div class="input-group">
+                    <button type="submit" *ngIf="!isEdit">Add</button>
+                    <button type="submit" *ngIf="isEdit">Edit</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </dialog>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

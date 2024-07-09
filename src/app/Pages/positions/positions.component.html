@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="body-wrapper">
+      <div class="body">
+        <div class="header">
+          <div class="title">Positions</div>
+          <button class="add" *ngIf="role === 'admin'" (click)="openDialog()">
+            Add
+          </button>
+        </div>
+        <div class="content">
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Level</th>
+                <th>A.Code</th>
+                <th *ngIf="role === 'admin'">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let position of positions; index as i">
+                <td>{{ position.name }}</td>
+                <td>{{ position.level }}</td>
+                <td>{{ position.area }}</td>
+                <td class="buttons" *ngIf="role === 'admin'">
+                  <i class="fa-solid fa-pen-to-square" (click)="editDialog(position)"></i>
+                  <i
+                    class="fa-solid fa-trash-can"
+                    (click)="deletePosition(position.$id)"
+                  ></i>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <dialog id="searchDialog" [open]="isDialogOpen" class="dialog">
+          <div class="dialog-wrapper">
+            <div class="dialog-header">
+              <div class="left">
+                <i class="fa-solid fa-crosshairs"></i>
+                <div class="title" *ngIf="!isEdit">Add</div>
+                <div class="title" *ngIf="isEdit">Edit</div>
+              </div>
+              <div class="close">
+                <i class="fa-solid fa-xmark" (click)="closeDialog()"></i>
+              </div>
+            </div>
+            <div class="dialog-body">
+              <form class="form" (submit)="isEdit ? onEdit(data) : onSubmit(data)">
+                <div class="input-group">
+                  <label for="name">Position Name</label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Enter position name"
+                    [(ngModel)]="data.name"
+                    required
+                  />
+                  <p class="error">{{ errors.name }}</p>
+                </div>
+                <div class="input-group">
+                  <label for="level">Level</label>
+                  <input
+                    type="text"
+                    id="level"
+                    placeholder="Enter position level"
+                    name="level"
+                    [(ngModel)]="data.level"
+                    required
+                  />
+                  <p class="error">{{ errors.level }}</p>
+                </div>
+                <div class="input-group">
+                  <label for="area">Area Code</label>
+                  <input
+                    type="number"
+                    id="area"
+                    name="area"
+                    placeholder="Enter position area code"
+                    [(ngModel)]="data.area"
+                    required
+                  />
+                  <p class="error">{{ errors.area }}</p>
+                </div>
+                <p class="error-message">{{ errors.err }}</p>
+                <div class="input-group">
+                  <button type="submit" *ngIf="!isEdit">Add</button>
+                  <button type="submit" *ngIf="isEdit">Edit</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </dialog>
+      </div>
+    </div>
+  </body>
+</html>

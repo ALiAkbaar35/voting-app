@@ -1,0 +1,166 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.body-wrapper {
+    width: 100%;
+    min-height: 100vh;
+    max-width: 1400px;
+    overflow-y: auto;
+    margin: 0 auto;
+}
+
+.body-wrapper .header {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px;
+    background-color: #1A73E8;
+}
+
+.body-wrapper .header .title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #FFFFFF; 
+}
+
+.body-wrapper .header .buttons {
+    display: flex;
+    gap: 10px;
+}
+.body-wrapper .header .buttons select{
+    padding: 5px 10px;
+    border: 1px solid #4285F4;
+    border-radius: 5px;
+    background-color: #F1F3F4;
+    outline: 0;
+}
+.body-wrapper .header .buttons button {
+    padding: 5px 10px;
+    border: 1px solid #4285F4;
+    border-radius: 5px;
+    background-color: #F1F3F4;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #4285F4; 
+    color: white;
+}
+
+.body-wrapper .body{
+    width: 100%;
+    overflow-y: auto;
+    height: calc(100vh - 50px);
+
+}
+
+
+@media screen and (max-width: 320px) {
+    .body-wrapper .header {
+        padding: 2px; 
+    }
+    
+    .body-wrapper .header .title {
+        font-size: 18px; 
+    }
+    
+    .body-wrapper .header .buttons {
+        padding: 0 8px;
+    }
+    
+    .body-wrapper .header .buttons select {
+        padding: 3px 4px; 
+    }
+    
+    .body-wrapper .header .buttons button {
+        padding: 3px 6px;
+        font-size: 12px; 
+    }
+    .body-wrapper .body {
+        padding: 0; 
+    }
+    
+}
+@media screen and (min-width: 320px) and (max-width: 480px) {
+    .body-wrapper .header {
+        padding: 0 5px;
+    }
+    
+    .body-wrapper .header .title {
+        font-size: 20px; 
+    }
+    
+    .body-wrapper .header .buttons {
+        padding: 0 10px; }
+    
+    .body-wrapper .header .buttons select {
+        padding: 3px 5px; 
+    }
+    
+    .body-wrapper .header .buttons button {
+        padding: 5px 10px;
+        font-size: 14px; 
+    }
+    
+    .body-wrapper .body {
+        padding: 0; 
+    }
+}
+@media screen and (min-width: 481px) and ( max-width: 768px) {
+    .body-wrapper .header {
+        padding: 0 15px;
+    }
+    
+    .body-wrapper .header .title {
+        font-size: 22px; 
+    }
+    
+    .body-wrapper .header .buttons {
+        padding: 0 15px;
+    }
+    
+    .body-wrapper .header .buttons select {
+        padding: 3px 6px; 
+    }
+    
+    .body-wrapper .header .buttons button {
+        padding: 5px 10px;
+        font-size: 14px; 
+    }
+    
+    .body-wrapper .body {
+        background-color: #1A73E8;
+    }
+}
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .body-wrapper .header {
+        padding: 0 30px;
+    }
+    
+    .body-wrapper .header .title {
+        font-size: 24px; 
+    }
+    
+    .body-wrapper .header .buttons {
+        padding: 0 30px; 
+    }
+    
+    .body-wrapper .header .buttons select {
+        padding: 5px 10px; 
+    }
+    
+    .body-wrapper .header .buttons button {
+        padding: 8px 15px;
+        font-size: 16px; 
+    }
+    
+    .body-wrapper .body {
+        padding: 20px; 
+    }
+}

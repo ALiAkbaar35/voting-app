@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Voting Application - Vote</title>
+  </head>
+  <body>
+    <div class="body-wrapper">
+      <div class="body">
+        <div class="header">
+          <div class="title">Vote for Candidates</div>
+        </div>
+        <div class="content">
+          <div class="position-box" *ngFor="let position of positions">
+            <div class="position-header">
+              <div class="position-name">{{ position.name }}</div>
+              <div class="position-section">
+                <div class="position-level">{{ position.level }}</div>
+                <div class="position-area">{{ position.area }}</div>
+              </div>
+            </div>
+            <div class="candidates">
+              <form (ngSubmit)="submitVote(position)">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Party</th>
+                      <th>Select</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let candidate of position.candidates">
+                      <td>{{ candidate.name }}</td>
+                      <td>{{ candidate.party }}</td>
+                      <td>
+                        <input
+                          type="radio"
+                          name="candidate-{{ position.$id }}"
+                          [value]="candidate"
+                          [(ngModel)]="candidateId"
+                          required
+                        />
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <button type="submit">Submit Vote</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

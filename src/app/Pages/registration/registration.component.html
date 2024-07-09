@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration</title>
+  </head>
+  <body>
+    <div class="registration-container">
+      <form class="registration-form" (submit)="onSubmit()">
+        <h2>Register</h2>
+
+        <div class="input-group">
+          <label for="nationalId">National ID</label>
+          <input
+            type="text"
+            placeholder="Enter your national ID"
+            id="nationalId"
+            name="nationalId"
+            [(ngModel)]="data.nationalId"
+          />
+          <p class="error">{{ errors.nationalId }}</p>
+
+        </div>
+          <div class="input-group">
+            <label for="fullName">Full Name</label>
+            <input
+              type="text"
+              placeholder="Enter your full name"
+              id="fullName"
+              name="fullName"
+              required
+              [(ngModel)]="data.fullName"
+            />
+            <p class="error">{{ errors.fullName }}</p>
+
+          </div>
+
+          <div class="input-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              placeholder="Enter your email"
+              id="email"
+              name="email"
+              required
+              [(ngModel)]="data.email"
+            />
+            <p class="error">{{ errors.email }}</p>
+          </div>
+
+          <div class="input-group">
+            <label for="address">Address</label>
+            <input
+              type="text"
+              id="address"
+              name="address"
+              placeholder="Enter your address"
+              [(ngModel)]="data.address"
+            />
+            <p class="error">{{ errors.address }}</p>
+
+          </div>
+          <div class="input-group">
+            <label for="area">Area Code</label>
+            <input
+              type="number"
+              id="area"
+              name="area"
+              placeholder="Enter your area code"
+              [(ngModel)]="data.area"
+            />
+            <p class="error">{{ errors.area }}</p>
+          </div>
+          <div class="input-group">
+            <label for="age">Age</label>
+            <input
+              type="date"
+              placeholder="Enter your age"
+              id="age"
+              name="age"
+              [(ngModel)]="data.DOB"
+            />
+            <p class="error">{{ errors.DOB }}</p>
+
+          </div>
+          <div class="input-group">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              placeholder="Enter your password"
+              id="password"
+              name="password"
+              required
+              [(ngModel)]="data.password"
+            />
+          </div>
+          <div class="input-group">
+            <label for="confirmPassword">Confirm Password</label>
+            <input
+              type="password"
+              placeholder="Confirm your password"
+              id="confirmPassword"
+              name="confirmPassword"
+              required
+              [(ngModel)]="data.confirmPassword"
+            />
+            <p class="error">{{ errors.confirmPassword }}</p>
+
+          </div>
+          <p class="error-message">{{ errors.error }}</p>
+
+        <button type="submit">Register</button>
+
+        <p class="login-link">
+          Already have an account? <a routerLink="/login">Login here</a>
+        </p>
+      </form>
+    </div>
+  </body>
+</html>

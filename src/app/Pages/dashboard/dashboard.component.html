@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="body-wrapper">
+      <div class="body">
+        <div class="header">
+          <div class="title">Winners</div>
+        </div>
+        <div class="content">
+          <table>
+            <thead>
+              <tr>
+                <th>Position</th>
+                <th>Candidate</th>
+                <th>Level</th>
+                <th>A.Code</th>
+                <th>Votes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let position of positions; index as i">
+                <td>{{ position.name }}</td>
+                <td>{{ position.candidates?.name }}</td>
+                <td>{{ position.level }}</td>
+                <td>{{ position.area }}</td>
+                <td>{{ position.candidates?.vote }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

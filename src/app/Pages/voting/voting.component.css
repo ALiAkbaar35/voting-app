@@ -1,0 +1,201 @@
+* {
+    margin: 0;
+    padding: 0;
+    /* overflow: hidden; */
+    box-sizing: border-box;
+  }
+  
+  .body-wrapper {
+      width: 100%;
+      min-height: calc(100vh - 50px); 
+      height: 100%;
+      overflow-y: auto;
+      padding: 20px 110px;
+      background-color: aliceblue;
+    }
+  
+  .body {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    background-color: white;
+    overflow: auto;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .title {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .content {
+    width: 100%;
+    height: 100%;
+    margin-top: 20px;
+  }
+  
+  .position-box {
+    margin-bottom: 20px;
+  }
+  
+  .position-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .position-name {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .position-section {
+    display: flex;
+  }
+  
+  .position-level,
+  .position-area {
+    margin-left: 10px;
+  }
+  
+  .candidates {
+    width: 100%;
+    width: 100%;
+    /* overflow-y: auto; */
+  }
+  
+  .candidates table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .candidates th,
+  .candidates td {
+    border-bottom: 1px solid #ddd;
+    width: 33.3%;
+
+    padding: 8px;
+    text-align: center;
+  }
+  
+  .candidates th {
+    background-color: #f4f4f4;
+  }
+  
+  .candidates input[type="radio"] {
+    margin: 0 auto;
+    display: block;
+  }
+  
+  button[type="submit"] {
+    display: block;
+    margin: 20px 0;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+  
+  
+@media screen and (max-width: 320px) {
+  .body-wrapper {
+    padding: 10px;
+  }
+  .body-wrapper .body {
+    padding: 10px;
+  }
+  .body-wrapper .body .header .title {
+    font-size: 20px;
+    .input-group input,
+    .input-group button {
+      font-size: 12px;
+    }
+  }
+
+  td {
+    text-align: left;
+    padding: 8px 10px; 
+    /* border-bottom: 1px solid #ddd; */
+    height: 35px;
+    width: 100%;
+    /* width: 25%; */
+    /* background-color: #666; */
+  }
+  
+  
+  }
+  @media screen and (min-width: 320px) and (max-width: 480px) {
+  .body-wrapper {
+    padding: 10px;
+  }
+  .body-wrapper .body {
+    padding: 10px;
+  }
+  .body-wrapper .body .header .title {
+    font-size: 20px;
+    .input-group input,
+    .input-group button {
+      font-size: 12px;
+    }
+  }
+
+  td {
+    text-align: left;
+    padding: 8px 10px; 
+    height: 35px;
+    width: 100%;
+ 
+  }
+  
+  
+
+  
+  }
+  @media screen and (min-width: 481px) and (max-width: 768px) {
+  .body-wrapper {
+    padding: 15px 30px;
+  }
+  .body-wrapper .body {
+    padding: 10px;
+  }
+  .body-wrapper .body .header .title {
+    font-size: 20px;
+    .input-group input,
+    .input-group button {
+      font-size: 12px;
+    }
+  }
+
+  
+  }
+  @media screen and (min-width: 769px) and (max-width: 1024px) {
+  .body-wrapper {
+    padding: 15px 50px;
+  }
+  .body-wrapper .body {
+    padding: 10px;
+  }
+  .body-wrapper .body .header .title {
+    font-size: 20px;
+    .input-group input,
+    .input-group button {
+      font-size: 12px;
+    }
+  }
+
+  }
